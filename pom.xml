@@ -10,20 +10,20 @@
 
     <properties>
 		<docker.image.prefix>kammana</docker.image.prefix>
-		<sonar.host.url>http://ec2-34-205-143-65.compute-1.amazonaws.com:9000/</sonar.host.url>
+		<sonar.host.url>http://3.85.54.200:9000/</sonar.host.url>
 
 	</properties>
    <distributionManagement>
 		 <snapshotRepository>
 		    <id>nexusRepo</id>
-		    <url>http://54.144.141.73:8081/repository/Test_Snapshot/</url>
+		    <url>http://100.26.249.110:8081/repository/test-Snapshot/</url>
 		 </snapshotRepository>
 		
 		<repository>
 		    <id>nexusRepo</id>
-		    <url>http://54.144.141.73:8081/repository/Test_Release/</url>
+		    <url>http://100.26.249.110:8081/repository/test-Release/</url>
 		</repository>
-   </distributionManagement>
+    </distributionManagement>
 
     <build>
         <plugins>
