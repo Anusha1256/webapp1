@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-   tools {
-jdk 'JAVA1.8'
-
-    stages {
+ stages {
         stage('CLONE SCM') {
             steps {
                 echo 'cloning code from Github'
@@ -35,7 +32,6 @@ jdk 'JAVA1.8'
             }
         }
     }
-}
 }
 
 
