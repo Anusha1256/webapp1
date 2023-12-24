@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+   tools {
+jdk 'JAVA1.8'
+
     stages {
         stage('CLONE SCM') {
             steps {
@@ -10,18 +13,25 @@ pipeline {
         }
 		
 				
-		stage('Build Artifact') {
+		stage('SONARQUBE ANALYSIS') {
             steps {
-                echo 'Build Artifact with maven build tool'
-				sh 'mvn clean install'
+                echo 'Code is scanned with sonarqube tool'
+				sh 'mvn clean sonar:sonar'
             }
         }
-		
+
+
+               stage('Build Artifact and pushing to nexus') {
+            steps {
+                echo 'Build Artifact with maven build tool and pushed to nexus artifactory'
+				sh 'mvn clean deploy'
+            }
+        }            
 		
 		stage('Deploy') {
             steps {
                 echo 'Deploy to tomcat ap/n server '
-				deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://3.88.103.180:8081/')], contextPath: 'facebook', war: '**/*.war'
+				deploy adapters: [tomcat9(credentialsId: 'tomcat-creds', path: '', url: 'http://54.90.13.214:8091/')], contextPath: 'webapp', war: '**/*.war'
             }
         }
     }
