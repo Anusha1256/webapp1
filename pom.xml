@@ -16,12 +16,12 @@
   <distributionManagement>
 		 <snapshotRepository>
 		    <id>nexusRepo</id>
-		    <url>http://100.25.166.164:8081/repository/Test-snapshot/</url>
+		    <url>http://100.25.24.139:8081/repository/test-snapshot/</url>
 		 </snapshotRepository>
 		
 		<repository>
 		    <id>nexusRepo</id>
-		    <url>http://100.25.166.164:8081/repository/Test-release/</url>
+		    <url>http://100.25.24.139:8081/repository/test-release/</url>
 		</repository>
   </distributionManagement>
 
