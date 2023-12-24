@@ -10,20 +10,12 @@ pipeline {
         }
 		
 				
-		stage('SONARQUBE ANALYSIS') {
+		stage('SONARQUBE ANALYSIS & pushing to nexus') {
             steps {
-                echo 'Code is scanned with sonarqube tool'
-				sh 'mvn clean sonar:sonar'
+                echo 'Code is scanned with sonarqube tool and pushed artifact to nexus'
+				sh 'mvn clean sonar:sonar deploy'
             }
-        }
-
-
-               stage('Build Artifact and pushing to nexus') {
-            steps {
-                echo 'Build Artifact with maven build tool and pushed to nexus artifactory'
-				sh 'mvn clean deploy'
-            }
-        }            
+        }        
 		
 		stage('Deploy') {
             steps {
